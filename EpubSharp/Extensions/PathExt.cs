@@ -59,7 +59,6 @@ namespace EpubSharp
             }
             else
             {
-                if (!directory.StartsWith("/")) directory = "/" + directory;
                 return string.Concat(directory, "/", filename);
             }
         }
