@@ -192,6 +192,18 @@ namespace EpubSharp
             format.Opf.Metadata.Titles.Add(title);
         }
 
+        public void SetLanguage(string language)
+        {
+            if (string.IsNullOrWhiteSpace(language)) throw new ArgumentNullException(nameof(language));
+            RemoveLanguage();
+            format.Opf.Metadata.Languages.Add(language);
+        }
+
+        public void RemoveLanguage()
+        {
+            format.Opf.Metadata.Languages.Clear();
+        }
+
         public EpubChapter AddChapter(string title, string html, string fileId = null)
         {
             if (string.IsNullOrWhiteSpace(title)) throw new ArgumentNullException(nameof(title));
